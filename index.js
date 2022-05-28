@@ -44,8 +44,7 @@ app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize());
 app.use(express.json());
-app.use(helmet())
-app.disable('x-powered-by')
+app.disable('x-powered-by');
 
 app.use(function (req, res, next) {
 

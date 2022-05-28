@@ -1,5 +1,5 @@
 <% layout("layouts/boilerplate") %>
-
+<title>Edit post</title>
 <div class="row d-flex justify-content-center">
     <div class="col-9 mt-1 query-title">Modify your comment</div>
 </div>
@@ -15,7 +15,9 @@
             <textarea name="comment" class="form-control" id="comment" maxlength="300" required autocomplete="off"><%=foundComment.comment%></textarea>
             <input type="hidden" name="url" value="<%=page%>">
             </div>
-            <button class="btn btn-light">Submit</button>
+            <div class="justify-content-center">
+                <button class="btn btn-light">Submit</button>
+            </div>
         </form>
     </div>
 </div>

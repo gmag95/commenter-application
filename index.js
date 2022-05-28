@@ -18,6 +18,7 @@ const commentsRoute = require("./routes/comments");
 const ejsMate = require("ejs-mate");
 const mongoSanitize = require("express-mongo-sanitize");
 const MongoDBStore = require('connect-mongo');
+const helmet = require('helmet')
 
 const dbUrl = process.env.DB_URL || "mongodb://0.0.0.0:27017/commenter"
 const secret = process.env.SESSION_KEY || "defaultsecretcode";
@@ -43,6 +44,8 @@ app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(mongoSanitize());
 app.use(express.json());
+app.use(helmet())
+app.disable('x-powered-by')
 
 app.use(function (req, res, next) {
 
@@ -71,6 +74,7 @@ const sessionConfig = {
     resave : false,
     saveUninitialized : true,
     cookie : {
+        secure: true,
         httpOnly : true,
         expires: Date.now() + 1000*60*60*24*7,
         maxAge: 1000*60*60*24*7

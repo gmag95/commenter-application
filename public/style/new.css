@@ -34,10 +34,12 @@ textarea, input {
 }
 
 .btn, .btn:hover, .btn:active, .btn:visited, .btn:focus {
-    margin: 0.7em 0em;
     background-color: #ffc107;
     border-color: #ffc107;
-    padding: 0.3em 0.7em;
+}
+
+.btn {
+    margin: 0.5em 0;
 }
 
 @media (max-width: 576px) {

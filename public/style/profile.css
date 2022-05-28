@@ -81,10 +81,6 @@ form .btn {
         text-align: center;
     }
 
-    .flex-wrap span {
-        margin-left:0;
-    }
-
     .border-el {
         display: none;
     }
@@ -92,4 +88,20 @@ form .btn {
     img {
         display: none;
     }
+
+    .post-title {
+        max-height: 100px;
+    }
+
+    .post-container {
+        min-height: 60vh;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .flex-wrap span {
+        margin-left:0;
+    }
+
 }

@@ -7,6 +7,10 @@
     min-height: 60vh;
 }
 
+.search-canvas {
+    min-height: 15vh;
+}
+
 .post-container {
     flex-direction: column;
 }

@@ -47,7 +47,7 @@ app.use(express.json());
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', `http://localhost:80`);
+    res.setHeader('Access-Control-Allow-Origin', `http://localhost:${port}`);
 
     // Request methods you wish to allow
     res.setHeader('Access-Control-Allow-Methods', 'GET');
@@ -61,7 +61,7 @@ app.use(function (req, res, next) {
 
 const port = process.env.PORT
 
-app.listen(80, () => {
+app.listen(port, () => {
     console.log("Listening from the Heroku server");
 })
 

@@ -1,0 +1,61 @@
+.container-big {
+    background-color: lightgrey;
+    min-height: 100vh;
+}
+
+
+.post-container {
+    flex-direction: column;
+}
+
+.title {
+    font-size: 1.5em;
+}
+
+.query-title {
+    font-size: 1.5em;
+}
+
+label {
+    display: block;
+}
+
+.form-control:first-of-type {
+    padding: 1px 2px;
+    border-radius: 0.2em;
+}
+
+textarea, input {
+    width: 100%;
+    resize: none;
+    background-color: ghostwhite;
+    border: 0.05em solid gray;
+    border-radius: 0.2em;
+}
+
+.btn, .btn:hover, .btn:active, .btn:visited, .btn:focus {
+    margin: 0.7em 0em;
+    background-color: #ffc107;
+    border-color: #ffc107;
+    padding: 0.3em 0.7em;
+}
+
+input {
+    margin-bottom: 0.2em;
+}
+
+@media (max-width: 768px) {
+
+    .query-title {
+        text-align: center;
+    }
+
+    label {
+        text-align: center;
+    }
+
+    textarea {
+        height:7em;
+    }
+
+}

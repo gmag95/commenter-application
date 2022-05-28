@@ -1,0 +1,46 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="row d-flex justify-content-center">
+    <div class="col-9 mt-1 query-title">Latest comments</div>
+</div>
+    <div class="row d-flex justify-content-center post-canvas">
+        <div class="col-9 post-container bg-dark mb-3 mt-2 pt-2 d-flex align-items-center">
+            <% for (let x=0; x<Math.min(Math.max(5, commentsNum), input_length); x++) {%>
+                <div class="post mb-2 p-1 row w-100">
+                    <div class="flex-wrap">
+                        <b><a href="http://localhost:3000/comments/history?user=<%=comments[x].user%>&startDate=&endDate="><%=comments[x].user%></a></b> on <b><%=comments[x].timestamp.toISOString().substring(0, 10)%></b><% if (currentUser && comments[x].user == currentUser.username) {%><span>
+                            <form action="/comments/<%=comments[x]._id%>/edit">
+                                <button class="btn btn-sm text-black">Edit</button>
+                                <input type="hidden" name="url" value="/comments<%=page%>">
+                                <input type="hidden" name="num" value="<%=Math.max(5, commentsNum)%>" class="num">
+                            </form><form action="/comments/<%=comments[x]._id%>?_method=DELETE" method="POST">
+                                <button class="btn btn-sm text-black">Delete</button>
+                                <input type="hidden" name="url" value="/comments<%=page%>">
+                                <input type="hidden" name="num" value="<%=Math.max(5, commentsNum)%>" class="num">
+                            </form>
+                        </span>
+                        <% } %>  
+                    </div>
+                    <div><%=comments[x].comment%></div>
+                </div>
+            <% } %>
+            <% if (commentsNum == input_length) {%> 
+                <p class="bottom-el">There are no more comments</p>
+            <% } else if (input_length>5) { %>
+                <button class="btn btn-light bottom-el" id="reload-btn">More comments</button>
+            <% } %>
+        </div>
+    </div>
+   
+    <link rel="stylesheet" href="/style/main.css">
+
+    <script>
+        let comm_length = <%=input_length%>;
+        let conditions = {};
+        let currUsername = undefined;
+        <% if (currentUser) {  %> 
+            currUsername =  <%-JSON.stringify(currentUser.username)%>;
+        <% }  %> 
+    </script>
+    <script src="/js/query.js"></script>
+    

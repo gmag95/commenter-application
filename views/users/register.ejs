@@ -1,0 +1,33 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="row d-flex justify-content-center">
+    <div class="col-9 col-md-4 mt-1 query-title">Register a new user</div>
+</div>
+
+<div class="row d-flex justify-content-center post-canvas">
+    <div class="col-9 col-md-4 post-container bg-dark text-light mb-3 mt-2 pt-2 d-flex">
+        <form action="/register" method="post" class="needs-validation" novalidate>
+            <div>
+                <label for="username" class="mb-2 form-label">Username</label>
+                <input type="text" class="form-control" name="username" id ="username" maxlength="20" required autocomplete="off">
+                </div>
+            <div>
+                <label for="email" class="mb-2 form-label">E-mail</label>
+                <input type="email" class="form-control" name="email" id ="email" maxlength="20" required autocomplete="off">
+                </div>
+            <div>
+                <label for="password" class="mb-2 form-label">Password</label>
+                <input type="password" class="form-control" name="password" id ="password" maxlength="20" required autocomplete="off">
+            </div>
+            <div>
+                <label for="regCode" class="mb-2 form-label">Registration code</label>
+                <input type="password" class="form-control" name="regCode" id ="regCode" maxlength="20" required autocomplete="off">
+            </div>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-light">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<link rel="stylesheet" href="/style/register.css">

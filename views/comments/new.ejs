@@ -1,0 +1,23 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="row d-flex justify-content-center">
+    <div class="col-9 mt-1 query-title">Insert a new comment</div>
+</div>
+
+<div class="row d-flex justify-content-center post-canvas">
+    <div class="col-9 post-container bg-dark text-light mb-3 mt-2 pt-2 d-flex">
+        <form action="/comments/new" method="POST" class="needs-validation" novalidate>
+            <div>
+              <p><b>Posting as: </b><%= currentUser.username %> </p>
+            </div>
+            <div>
+            <label for="comment" class="my-2 form-label">Enter your comment</label>
+            <textarea name="comment" class="form-control" id="comment" maxlength="300" required autocomplete="off"></textarea>
+            </div>
+            <button class="btn btn-light">Submit</button>
+        </form>
+    </div>
+</div>
+</div>
+
+<link rel="stylesheet" href="/style/new.css">

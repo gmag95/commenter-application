@@ -1,0 +1,75 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="row d-flex justify-content-center">
+    <div class="col-9 mt-1 query-title">Comments finder</div>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-9 query-box bg-dark text-light mt-2 pt-2 d-flex align-items-center">
+        <div class="row query-row">
+            <form action="/comments/history" method="GET" class="d-flex" id="queryForm">
+                <span>
+                <label for="user">Username</label>
+                <input type="text" name="user" id="user" placeholder="" maxlength="20" value="<%=user%>" autocomplete="off">
+                </span>
+                <span>
+                <label for="startDate">Start date</label>
+                <input type="date" name="startDate" id="startDate" value="<%=startDate%>">
+                </span>
+                <span>
+                <label for="endDate">End date</label>
+                <input type="date" name="endDate" id="endDate" value="<%=endDate%>">
+                </span>
+            </form>
+        </div>
+            <div class="row button-row d-flex justify-content-center">
+                <button class="btn btn-light submit-button mt-2 mb-2" form="queryForm">Submit</button>
+            </div>
+    </div>
+</div>
+<div class="row d-flex justify-content-center post-canvas">
+    <div class="col-9 post-container bg-dark mb-3 d-flex align-items-center">
+        <div class="border-el mb-2"></div>
+        <% if (comments!=undefined && comments.length>0 ) { %>    
+            <% for (let x=0; x<Math.min(Math.max(5, historyNum), input_length); x++) {%>
+                <div class="post mb-2 p-1 row w-100">
+                    <div class="flex-wrap">
+                        <b><a href="http://localhost:3000/comments/history?user=<%=comments[x].user%>&startDate=&endDate="><%=comments[x].user%></a></b> on <b><%=comments[x].timestamp.toISOString().substring(0, 10)%></b><% if (currentUser && comments[x].user == currentUser.username) {%>
+                            <span>
+                                <form action="/comments/<%=comments[x]._id%>/edit">
+                                    <button class="btn btn-sm text-black">Edit</button>
+                                    <input type="hidden" name="url" value="/comments<%=page%>">
+                                    <input type="hidden" name="num" value="<%=Math.max(5, historyNum)%>" class="num">
+                                </form>
+                                <form action="/comments/<%=comments[x]._id%>?_method=DELETE" method="POST">
+                                    <button class="btn btn-sm text-black">Delete</button>
+                                    <input type="hidden" name="url" value="/comments<%=page%>">
+                                    <input type="hidden" name="num" value="<%=Math.max(5, historyNum)%>" class="num">
+                                </form>
+                            </span>
+                        <% } %>  
+                    </div>
+                    <div><%=comments[x].comment%></div>
+                </div>
+            <% } %>
+            <% if (historyNum == input_length) {%> 
+                <p class="bottom-el">There are no more comments</p>
+            <% } else if (input_length>5) { %>
+                <button class="btn btn-light bottom-el" id="reload-btn">More comments</button>
+            <% } %>
+        <% } %>
+    </div>
+</div>
+    
+<link rel="stylesheet" href="/style/history.css">
+
+<% if (input_length!=undefined && input_cond != undefined) { %>
+    <script>
+        let comm_length = <%=input_length%>;
+        let conditions = <%-JSON.stringify(input_cond)%>;
+        let currUsername = undefined;
+        <% if (currentUser) {  %> 
+        currUsername =  <%-JSON.stringify(currentUser.username)%>;
+        <% }  %> 
+    </script>
+<% }%>
+<script src="/js/query.js"></script>    

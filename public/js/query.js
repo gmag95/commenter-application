@@ -8,7 +8,7 @@ if (post_n && comm_length>5 && document.querySelector("#reload-btn")) {
 
 function getData() {
     var request = new XMLHttpRequest();
-    request.open('POST', 'http://127.0.0.1:3000/comments/getData', true);
+    request.open('POST', 'comments/getData', true);
     request.setRequestHeader('Content-Type', 'application/json');
 
     request.onload = function() {
@@ -20,7 +20,7 @@ function getData() {
             first_row.classList.add("flex-wrap");
             let bold = document.createElement("b");
             let user = document.createElement("a");
-            user.href=`http://localhost:3000/comments/history?user=${el.user}&startDate=&endDate=`;
+            user.href=`comments/history?user=${el.user}&startDate=&endDate=`;
             user.innerHTML=el.user;
             bold.appendChild(user);
             first_row.appendChild(bold);

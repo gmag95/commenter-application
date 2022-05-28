@@ -18,7 +18,6 @@ const commentsRoute = require("./routes/comments");
 const ejsMate = require("ejs-mate");
 const mongoSanitize = require("express-mongo-sanitize");
 const MongoDBStore = require('connect-mongo');
-const helmet = require('helmet')
 
 const dbUrl = process.env.DB_URL || "mongodb://0.0.0.0:27017/commenter"
 const secret = process.env.SESSION_KEY || "defaultsecretcode";
@@ -46,6 +45,8 @@ app.use(mongoSanitize());
 app.use(express.json());
 app.disable('x-powered-by');
 
+const port = process.env.PORT
+
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
@@ -60,8 +61,6 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
-
-const port = process.env.PORT
 
 app.listen(port, () => {
     console.log("Listening from the Heroku server");

@@ -8,7 +8,7 @@
             <% for (let x=0; x<Math.min(Math.max(5, commentsNum), input_length); x++) {%>
                 <div class="post mb-2 p-1 row w-100">
                     <div class="flex-wrap">
-                        <b><a href="http://localhost:3000/comments/history?user=<%=comments[x].user%>&startDate=&endDate="><%=comments[x].user%></a></b> on <b><%=comments[x].timestamp.toISOString().substring(0, 10)%></b><% if (currentUser && comments[x].user == currentUser.username) {%><span>
+                        <b><a href="/comments/history?user=<%=comments[x].user%>&startDate=&endDate="><%=comments[x].user%></a></b> on <b><%=comments[x].timestamp.toISOString().substring(0, 10)%></b><% if (currentUser && comments[x].user == currentUser.username) {%><span>
                             <form action="/comments/<%=comments[x]._id%>/edit">
                                 <button class="btn btn-sm text-black">Edit</button>
                                 <input type="hidden" name="url" value="/comments<%=page%>">

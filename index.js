@@ -97,7 +97,7 @@ app.use((req, res, next) => {
 })
 
 app.use("/", usersRoute);
-app.use("/comments", commentsRoute);
+app.use("/", commentsRoute);
 
 app.get("/", (req, res) => {
     res.redirect("/comments");

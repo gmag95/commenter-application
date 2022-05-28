@@ -16,20 +16,20 @@ function validateComment (req, res, next) {
     }
 }
 
-router.get("/", wrapAsync(comments.index))
+router.get("/comments", wrapAsync(comments.index))
 
-router.route("/new")
+router.route("/comments/new")
 .get(isLoggedIn, comments.commentForm)
 .post(validateComment, wrapAsync(comments.newComment))
 
-router.get("/:id/edit", isLoggedIn, isAuthor, wrapAsync(comments.editForm))
+router.get("/comments/:id/edit", isLoggedIn, isAuthor, wrapAsync(comments.editForm))
 
-router.route("/:id")
+router.route("/comments/:id")
 .put(isLoggedIn, isAuthor, validateComment, wrapAsync(comments.editedComment))
 .delete(isLoggedIn, isAuthor, wrapAsync(comments.deleteComment))
 
-router.post("/getData", wrapAsync(comments.getData))
+router.post("/comments/getData", wrapAsync(comments.getData))
 
-router.get("/history", wrapAsync(comments.history))
+router.get("/comments/history", wrapAsync(comments.history))
 
 module.exports = router;

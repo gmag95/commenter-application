@@ -6,7 +6,7 @@
 <div class="row d-flex justify-content-center search-canvas">
     <div class="col-9 query-box bg-dark text-light mt-2 pt-2 d-flex align-items-center justify-content-center">
         <div class="row query-row">
-            <form action="/comments/history" method="GET" class="d-flex" id="queryForm">
+            <form action="/history" method="GET" class="d-flex" id="queryForm">
                 <span>
                 <label for="user">Username</label>
                 <input type="text" name="user" id="user" placeholder="" maxlength="20" value="<%=user%>" autocomplete="off">
@@ -33,7 +33,7 @@
             <% for (let x=0; x<Math.min(Math.max(5, historyNum), input_length); x++) {%>
                 <div class="post mb-2 p-1 row w-100">
                     <div class="flex-wrap">
-                        <b><a href="/comments/history?user=<%=comments[x].user%>&startDate=&endDate="><%=comments[x].user%></a></b> on <b><%=comments[x].timestamp.toISOString().substring(0, 10)%></b><% if (currentUser && comments[x].user == currentUser.username) {%>
+                        <b><a href="/history?user=<%=comments[x].user%>&startDate=&endDate="><%=comments[x].user%></a></b> on <b><%=comments[x].timestamp.toISOString().substring(0, 10)%></b><% if (currentUser && comments[x].user == currentUser.username) {%>
                             <span>
                                 <form action="/comments/<%=comments[x]._id%>/edit">
                                     <button class="btn btn-sm text-black">Edit</button>

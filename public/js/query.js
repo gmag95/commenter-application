@@ -8,7 +8,7 @@ if (post_n && comm_length>5 && document.querySelector("#reload-btn")) {
 
 function getData() {
     var request = new XMLHttpRequest();
-    request.open('POST', 'comments/getData', true);
+    request.open('POST', 'getData', true);
     request.setRequestHeader('Content-Type', 'application/json');
 
     request.onload = function() {

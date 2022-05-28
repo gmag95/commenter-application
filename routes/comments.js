@@ -28,8 +28,8 @@ router.route("/comments/:id")
 .put(isLoggedIn, isAuthor, validateComment, wrapAsync(comments.editedComment))
 .delete(isLoggedIn, isAuthor, wrapAsync(comments.deleteComment))
 
-router.post("/comments/getData", wrapAsync(comments.getData))
+router.post("/getData", wrapAsync(comments.getData))
 
-router.get("/comments/history", wrapAsync(comments.history))
+router.get("/history", wrapAsync(comments.history))
 
 module.exports = router;

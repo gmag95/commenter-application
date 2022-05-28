@@ -37,12 +37,12 @@
                             <span>
                                 <form action="/comments/<%=comments[x]._id%>/edit">
                                     <button class="btn btn-sm text-black">Edit</button>
-                                    <input type="hidden" name="url" value="/comments<%=page%>">
+                                    <input type="hidden" name="url" value="<%=page%>">
                                     <input type="hidden" name="num" value="<%=Math.max(5, historyNum)%>" class="num">
                                 </form>
                                 <form action="/comments/<%=comments[x]._id%>?_method=DELETE" method="POST">
                                     <button class="btn btn-sm text-black">Delete</button>
-                                    <input type="hidden" name="url" value="/comments<%=page%>">
+                                    <input type="hidden" name="url" value="<%=page%>">
                                     <input type="hidden" name="num" value="<%=Math.max(5, historyNum)%>" class="num">
                                 </form>
                             </span>

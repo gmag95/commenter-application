@@ -20,7 +20,7 @@ function getData() {
             first_row.classList.add("flex-wrap");
             let bold = document.createElement("b");
             let user = document.createElement("a");
-            user.href=`comments/history?user=${el.user}&startDate=&endDate=`;
+            user.href=`history?user=${el.user}&startDate=&endDate=`;
             user.innerHTML=el.user;
             bold.appendChild(user);
             first_row.appendChild(bold);
@@ -38,7 +38,7 @@ function getData() {
                 let firstUrl = document.createElement("input");
                 firstUrl.name="url";
                 firstUrl.type="hidden";
-                firstUrl.value=currPage.substring(21);
+                firstUrl.value=currPage.substring(window.location.href.substring(window.location.href.indexOf(".com/")+5));
                 let firstNum=document.createElement("input");
                 firstNum.name="num";
                 firstNum.type="hidden";
@@ -56,7 +56,7 @@ function getData() {
                 let secondUrl = document.createElement("input");
                 secondUrl.name="url";
                 secondUrl.type="hidden";
-                secondUrl.value=currPage.substring(21);
+                secondUrl.value=currPage.substring(window.location.href.substring(window.location.href.indexOf(".com/")+5));
                 let secondNum=document.createElement("input");
                 secondNum.name="num";
                 secondNum.type="hidden";

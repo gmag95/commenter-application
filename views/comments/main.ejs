@@ -11,11 +11,11 @@
                         <b><a href="/history?user=<%=comments[x].user%>&startDate=&endDate="><%=comments[x].user%></a></b> on <b><%=comments[x].timestamp.toISOString().substring(0, 10)%></b><% if (currentUser && comments[x].user == currentUser.username) {%><span>
                             <form action="/comments/<%=comments[x]._id%>/edit">
                                 <button class="btn btn-sm text-black">Edit</button>
-                                <input type="hidden" name="url" value="/comments<%=page%>">
+                                <input type="hidden" name="url" value="<%=page%>">
                                 <input type="hidden" name="num" value="<%=Math.max(5, commentsNum)%>" class="num">
                             </form><form action="/comments/<%=comments[x]._id%>?_method=DELETE" method="POST">
                                 <button class="btn btn-sm text-black">Delete</button>
-                                <input type="hidden" name="url" value="/comments<%=page%>">
+                                <input type="hidden" name="url" value="<%=page%>">
                                 <input type="hidden" name="num" value="<%=Math.max(5, commentsNum)%>" class="num">
                             </form>
                         </span>

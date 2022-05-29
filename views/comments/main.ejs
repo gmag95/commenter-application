@@ -1,10 +1,11 @@
 <% layout("layouts/boilerplate") %>
 <title>Index</title>
+<link rel="stylesheet" href="/style/main.css">
 <div class="row d-flex justify-content-center">
-    <div class="col-9 mt-1 query-title">Latest comments</div>
+    <div class="col-10 mt-1 query-title">Latest comments</div>
 </div>
     <div class="row d-flex justify-content-center post-canvas">
-        <div class="col-9 post-container bg-dark mb-3 mt-2 pt-2 d-flex align-items-center">
+        <div class="col-10 post-container bg-dark mb-3 mt-2 pt-2 d-flex align-items-center">
             <% for (let x=0; x<Math.min(Math.max(5, commentsNum), input_length); x++) {%>
                 <div class="post mb-2 p-1 row w-100">
                     <div class="flex-wrap">
@@ -31,8 +32,6 @@
             <% } %>
         </div>
     </div>
-   
-    <link rel="stylesheet" href="/style/main.css">
 
     <script>
         let comm_length = <%=input_length%>;

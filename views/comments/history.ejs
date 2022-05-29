@@ -1,10 +1,10 @@
 <% layout("layouts/boilerplate") %>
 <title>Post history</title>
 <div class="row d-flex justify-content-center">
-    <div class="col-9 mt-1 query-title">Comments finder</div>
+    <div class="col-10 mt-1 query-title">Comments finder</div>
 </div>
 <div class="row d-flex justify-content-center search-canvas">
-    <div class="col-9 query-box bg-dark text-light mt-2 pt-2 d-flex align-items-center justify-content-center">
+    <div class="col-10 query-box bg-dark text-light mt-2 pt-2 d-flex align-items-center justify-content-center">
         <div class="row query-row">
             <form action="/history" method="GET" class="d-flex" id="queryForm">
                 <span>
@@ -27,7 +27,7 @@
     </div>
 </div>
 <div class="row d-flex justify-content-center post-canvas">
-    <div class="col-9 post-container bg-dark mb-3 d-flex align-items-center">
+    <div class="col-10 post-container bg-dark mb-3 d-flex align-items-center">
         <div class="border-el mb-2"></div>
         <% if (comments!=undefined && comments.length>0 ) { %>    
             <% for (let x=0; x<Math.min(Math.max(5, historyNum), input_length); x++) {%>

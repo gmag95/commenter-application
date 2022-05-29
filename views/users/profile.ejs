@@ -1,10 +1,10 @@
 <% layout("layouts/boilerplate") %>
 <title>Profile</title>
 <div class="row d-flex justify-content-center">
-    <div class="col-9 mt-1 query-title">Your latest comments</div>
+    <div class="col-10 mt-1 query-title">Your latest comments</div>
 </div>
-    <div class="row d-flex justify-content-center post-canvas align-content-start">
-        <div class="col-9 col-md-7 order-2 order-md-1 post-container bg-dark mb-3 mt-2 pt-2 d-flex align-items-center">
+    <div class="row d-flex justify-content-center post-canvas">
+        <div class="col-10 col-md-7 order-2 order-md-1 post-container bg-dark mb-3 mt-2 pt-2 d-flex align-items-center">
             <% for (let x=0; x<Math.min(Math.max(5, profileNum), input_length); x++) {%>
                 <div class="post mb-2 p-1 row w-100">
                     <div class="flex-wrap">
@@ -29,7 +29,7 @@
                 <button class="btn btn-light bottom-el" id="reload-btn">More comments</button>
             <% } %>
         </div>
-        <div class="col-9 col-md-2 order-1 order-md-2 bg-dark mb-3 mt-2 pt-2 px-0 pb-2 d-flex flex-row align-items-center post-title">
+        <div class="col-10 col-md-2 order-1 order-md-2 bg-dark mb-3 mt-2 pt-2 px-0 pb-2 d-flex flex-row align-items-center post-title">
             <div class="border-el flex-shrink-0"></div>
             <div class="w-100 h-100 d-flex flex-column align-items-center px-3 px-md-4 px-lg-5">
                 <h3 class="text-white"><%=currentUser.username%></h3>

@@ -149,10 +149,12 @@ label {
         align-items:center;
         justify-content: space-between;
     }
+    
+}
 
+@media (max-width: 399px) {
     .flex-wrap span {
         margin-left:0;
     }
-
 }
     

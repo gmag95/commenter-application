@@ -44,15 +44,12 @@ module.exports.editForm = async (req, res) => {
 }
 
 module.exports.editedComment = async (req, res) => {
-    console.log(req)
     await comment.findByIdAndUpdate(req.params.id, {comment:req.body.comment});
     req.flash("success", "Successfully updated comment");
-    console.log(req.body);
     res.redirect(req.body.url);
 }
 
 module.exports.deleteComment = async (req, res) => {
-    console.log(req)
     if (req.body.url.indexOf("history")!=-1) {
         req.session.historyNum=req.body.num-1;
     } else if (req.body.url.indexOf("profile")!=-1) {

@@ -30,7 +30,7 @@ module.exports.inputSchema = Joi.object({
 
 module.exports.userSchema = Joi.object({
     username: Joi.string().required().min(1).max(20).escapeHTML(),
-    email: Joi.string().required().min(1).max(20).escapeHTML(),
+    email: Joi.string().required().min(1).max(30).escapeHTML(),
     password: Joi.string().required().min(1).max(20).escapeHTML(),
     regCode: Joi.string().required().min(1).max(20).escapeHTML()
 })

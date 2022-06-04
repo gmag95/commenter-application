@@ -24,7 +24,7 @@ const extension = (joi) => ({
 const Joi = BaseJoi.extend(extension)
 
 module.exports.inputSchema = Joi.object({
-    comment: Joi.string().required().min(1).max(240).escapeHTML(),
+    comment: Joi.string().required().min(1).max(300).escapeHTML(),
     url: Joi.string()
 })
 

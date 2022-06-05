@@ -1,6 +1,6 @@
 # Commenter application
 
-![Commenter-analyzer](https://github.com/gmag95/personalpage/blob/main/public/img/screenshots/commenter.png?raw=true)
+[![Commenter-analyzer](https://github.com/gmag95/personalpage/blob/main/public/img/screenshots/commenter.png?raw=true)](https://commenter-application.herokuapp.com/comments)
 
 Website that allows the users to post comments and read those uploaded by others. The application includes full CRUD functionality and a login system.
 

@@ -1,6 +1,6 @@
 # Commenter application
 
-[![Commenter-application](https://github.com/gmag95/personalpage/blob/main/public/img/screenshots/commenter.webp?raw=true)](http://www.commenter-application.tk/)
+[![Commenter-application](https://github.com/gmag95/personalpage/blob/main/public/img/screenshots/commenter.webp?raw=true)](https://www.commenter-application.tk/)
 
 Website that allows the users to post comments and read those uploaded by others with a frontend written in vanilla Javascript. The application includes full CRUD functionality and a login system.
 
